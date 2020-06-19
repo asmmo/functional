@@ -1,5 +1,5 @@
 template <class T>
-struct Ref{
+struct refWrapper{
     operator T&(){
         return member;
     }
@@ -7,3 +7,8 @@ struct Ref{
 private:
     T& member;
 };
+template <class T>
+refWrapper<T> myRef( T& arg)
+{
+    return refWrapper{arg};
+}
